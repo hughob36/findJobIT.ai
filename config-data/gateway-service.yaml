@@ -5,7 +5,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/  
-  
+
 spring:
   cloud:
     gateway:      
@@ -13,12 +13,8 @@ spring:
         webflux:
           discovery:
             locator:
-              
               enabled: true 
-              
               lower-case-service-id: true 
-              
-      default-filters:
-        - RewritePath: 
-            regexp: ^/.*?/(?<remaining>.*)$
-            replacement: /${remaining}
+          # default-filters bien indentado dentro de la estructura webflux
+          default-filters:
+            - RewritePath=/^/.*?/(?<remaining>.*)$, /${remaining}
