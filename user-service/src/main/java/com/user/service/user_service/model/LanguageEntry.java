@@ -7,13 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Embeddable
 @Table(name = "language_entries")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class LanguageEntry {
+
 
     @Size(max = 50)
     @Column(name = "language_name", length = 50)
